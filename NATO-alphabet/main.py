@@ -11,8 +11,12 @@ def main():
         name = input("Enter a word or enter Q to quit: ").upper()
         if name == "Q":
             break
-        phonetic_code = [data_dict[letter] for letter in name]
-        print(phonetic_code)
+        try:
+            phonetic_code = [data_dict[letter] for letter in name]
+        except KeyError:
+            print("Sorry, only letters in the alphabet please.")
+        else:
+            print(phonetic_code)
 
 
 if __name__ == "__main__":
